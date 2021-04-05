@@ -16,9 +16,9 @@
       <TextField fx:id="jegyAr" layoutX="99.0" layoutY="429.0" />
       <TextField fx:id="jegyMikor" editable="false" layoutX="99.0" layoutY="470.0" promptText="YYYY-MM-DD" />
       <TextField fx:id="jegySzekek" layoutX="99.0" layoutY="506.0" />
-      <Button fx:id="updateJegy" layoutX="-1.0" layoutY="371.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="214.0" text="Módosítás" />
-      <Button fx:id="deleteJegy" layoutX="585.0" layoutY="371.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="214.0" text="Törlés" />
-      <TableView fx:id="jegyTable" layoutX="-1.0" layoutY="60.0" prefHeight="311.0" prefWidth="800.0">
+      <Button fx:id="updateJegy" layoutX="5.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Módosítás" />
+      <Button fx:id="deleteJegy" layoutX="587.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Törlés" />
+      <TableView fx:id="jegyTable" layoutX="9.0" layoutY="62.0" prefHeight="318.0" prefWidth="787.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="Jegy id" />
           <TableColumn fx:id="arColumn" prefWidth="92.79998779296875" text="Jegyár" />
@@ -28,15 +28,15 @@
             <TableColumn fx:id="szekekColumn" prefWidth="280.0" text="Foglalt székek" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="-1.0" layoutY="3.0" prefHeight="48.0" prefWidth="802.0">
+      <AnchorPane layoutY="6.0" prefHeight="46.0" prefWidth="806.0">
          <children>
             <Button fx:id="film" layoutX="163.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFilm" prefHeight="46.0" prefWidth="171.0" text="Film page" />
             <Button fx:id="home" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toHome" prefHeight="46.0" prefWidth="111.0" text="Home" />
             <Button fx:id="terem" layoutX="365.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toTerem" prefHeight="46.0" prefWidth="171.0" text="Terem page" />
-            <Button fx:id="foglalasActual" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false"  prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
+            <Button fx:id="foglalasActual" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
          </children>
       </AnchorPane>
-       <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" onMouseClicked="#exit" prefHeight="26.0" prefWidth="22.0" text="X">
+       <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="776.0" onMouseClicked="#exit" prefHeight="27.0" prefWidth="29.0" text="X">
          <font>
             <Font size="18.0" />
          </font>

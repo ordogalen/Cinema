@@ -28,6 +28,7 @@ public class MainWindowController implements Initializable {
     public void toFoglalas(ActionEvent actionEvent) {
         App.loadFXML("/fxml/jegy");
     }
+    @FXML
     public void toTerem(ActionEvent actionEvent) {
         App.loadFXML("/fxml/terem");
     }

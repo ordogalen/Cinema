@@ -1,3 +1,14 @@
+
+.root {
+    -fx-background-color: #956FD6;
+}
+
+.scroll-pane, .split-pane, .tab-pane, .table-view, .text-field, .label, .text-area, .list-view{
+    -fx-background-color: transparent;
+}
+
+/* -- buttons -- */
+
 #filmActual, #homeActual, #teremActual, #foglalasActual{
     -fx-background-color: #cdc8c8;
     -fx-text-fill: black;
@@ -11,6 +22,10 @@
 #exit{
     -fx-text-fill: #e9dadf;
 }
+#exit:hover{
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
 
 .button{
     -fx-background-color: black;
@@ -23,46 +38,75 @@
     -fx-text-fill: black;
     -fx-cursor: hand;
 }
+/* buttons */
 
-.root, .scroll-pane, .split-pane, .tab-pane, .table-view, .text-field, .label{
-    -fx-background-color: #956FD6;
-}
+/* -- label and text -- */
 .label{
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
-
 .text-area, .text-field{
     -fx-border-radius: 5px;
     -fx-border-color: black;
+    -fx-text-fill: white;
 }
-.table-view{
-    -fx-border-color: black;
-    -fx-border-radius: 8px;
-    -fx-border-width: 2px;
+.text-area {
+    text-area-background: #956FD6 ;
+}
+.text-area .content {
+    -fx-background-color: text-area-background ;
+}
+/*label and text */
+
+/* --  table view css -- */
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+
+    -fx-text-fill: white;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
 }
 .table-view .table-cell{
-    -fx-border-color: transparent;
-    -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white;
 }
-.table-row-cell:selected .text{
-    -fx-color:#D3D3D3;
- }
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
 
 .table-row-cell:odd{
-    -fx-background-color: #93f9b911;
+    -fx-background-color: -fx-table-cell-border-color, #424242;
     -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em;
+    -fx-padding: 0.0em
 }
-.table-row-cell:even{
-    -fx-background-color: #1dbbdd11;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em;
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
 }
-.table-row-cell:hover {
-    -fx-background-color: #93f9b911;
-    -fx-font-weight: bold;
+
+.table-row-cell:selected {
+    -fx-background-color: #956FD6;
+    -fx-background-insets: 0;
 }
+.table-view .filler{
+    -fx-background-color: transparent;
+}
+/* table view css */
+
+
 .split-pane *.split-pane-divider {
     -fx-padding: 0 1 0 1;
 }
@@ -70,4 +114,22 @@
     -fx-border-color: black;
     -fx-border-radius: 8px;
     -fx-border-width: 2px;
+}
+
+.choice-box .context-menu { -fx-background-color: black; }
+.choice-box .menu-item:focused { -fx-background-color: white; }
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+.choice-box .menu-item:focused > .label { -fx-text-fill: black; }
+.choice-box {
+    -fx-background-color: transparent;
+    -fx-mark-color:black;
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+}
+
+.date-picker > .text-field {
+    -fx-background-color: #956FD6;
+    -fx-text-fill: white;
+    -fx-background-insets: 1 0 1 1;
+    -fx-background-radius: 2 0 0 2;
 }

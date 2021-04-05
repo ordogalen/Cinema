@@ -53,7 +53,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <AnchorPane layoutX="-2.0" layoutY="3.0" prefHeight="48.0" prefWidth="802.0">
+      <AnchorPane layoutX="-2.0" layoutY="6.0" prefHeight="45.0" prefWidth="802.0">
          <children>
             <Button fx:id="filmActual" layoutX="163.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFilm" prefHeight="46.0" prefWidth="171.0" text="Film page" />
             <Button fx:id="home" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toHome" prefHeight="46.0" prefWidth="111.0" text="Home" />
@@ -61,7 +61,7 @@
             <Button fx:id="foglalas" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFoglalas" prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
          </children>
       </AnchorPane>
-       <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" onMouseClicked="#exit" prefHeight="26.0" prefWidth="22.0" text="X">
+       <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" onMouseClicked="#exit" prefHeight="27.0" prefWidth="23.0" text="X">
          <font>
             <Font size="18.0" />
          </font>

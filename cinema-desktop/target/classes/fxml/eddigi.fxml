@@ -13,7 +13,7 @@
    <children>
       <Button layoutX="11.0" layoutY="417.0" mnemonicParsing="false" onAction="#toModosit" prefHeight="38.0" prefWidth="171.0" text="Film hozzáadás/módosítása" />
       <Button layoutX="621.0" layoutY="417.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="171.0" text="Film törlése" />
-      <TableView fx:id="filmView" editable="true" layoutX="11.0" layoutY="66.0" prefHeight="351.0" prefWidth="782.0">
+      <TableView fx:id="filmView" layoutX="11.0" layoutY="66.0" prefHeight="351.0" prefWidth="782.0">
         <columns>
           <TableColumn fx:id="filmNev" prefWidth="173.59997844696045" text="Film neve" />
           <TableColumn fx:id="filmHossz" prefWidth="78.39994812011719" text="Hossza (p)" />
@@ -23,13 +23,13 @@
             <TableColumn fx:id="filmLeiras" prefWidth="174.39999999999998" text="Leiras" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="1.0" layoutY="7.0" prefHeight="48.0" prefWidth="802.0">
+      <AnchorPane layoutY="6.0" prefHeight="48.0" prefWidth="802.0">
          <children>
             <Button fx:id="filmActual" layoutX="163.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="171.0" text="Film page" />
             <Button fx:id="home" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toHome" prefHeight="46.0" prefWidth="111.0" text="Home" />
             <Button fx:id="terem" layoutX="365.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toTerem" prefHeight="46.0" prefWidth="171.0" text="Terem page" />
             <Button fx:id="foglalas" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFoglalas" prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
-            <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" layoutY="-6.0" onMouseClicked="#exit" prefHeight="26.0" prefWidth="22.0" text="X">
+            <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="774.0" layoutY="-6.0" onMouseClicked="#exit" prefHeight="27.0" prefWidth="28.0" text="X">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,7 +39,7 @@
       <AnchorPane fx:id="searchPane" layoutX="252.0" layoutY="436.0" prefHeight="134.0" prefWidth="330.0">
          <children>
             <Label alignment="CENTER" layoutX="117.0" prefHeight="18.0" prefWidth="76.0" text="Keresés" />
-            <Button onAction="#keres" layoutX="117.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Keresés" />
+            <Button layoutX="117.0" layoutY="107.0" mnemonicParsing="false" onAction="#keres" prefHeight="26.0" prefWidth="76.0" text="Keresés" />
             <Label layoutX="10.0" layoutY="34.0" prefHeight="18.0" prefWidth="76.0" text="Mit keresel:" />
             <Label layoutX="10.0" layoutY="71.0" prefHeight="18.0" prefWidth="43.0" text="Miben:" />
             <ChoiceBox fx:id="searchWherein" layoutX="86.0" layoutY="67.0" prefHeight="26.0" prefWidth="87.0" />

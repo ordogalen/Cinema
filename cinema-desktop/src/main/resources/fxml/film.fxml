@@ -82,7 +82,7 @@
             <Button fx:id="home" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toHome" prefHeight="46.0" prefWidth="111.0" text="Home" />
             <Button fx:id="terem" layoutX="365.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toTerem" prefHeight="46.0" prefWidth="171.0" text="Terem page" />
             <Button fx:id="foglalas" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFoglalas" prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
-            <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" onMouseClicked="#exit" prefHeight="26.0" prefWidth="22.0" text="X">
+            <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" layoutY="-11.0" onMouseClicked="#exit" prefHeight="38.0" prefWidth="22.0" text="X">
                <font>
                   <Font size="18.0" />
                </font>

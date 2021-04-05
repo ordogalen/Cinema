@@ -20,7 +20,7 @@ public class App extends Application {
     public void start(Stage stage) {
         App.stage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
-        App.loadFXML("/fxml/primary");
+        App.loadFXML("/fxml/vetites");
     }
 
     public static FXMLLoader loadFXML(String fxml){

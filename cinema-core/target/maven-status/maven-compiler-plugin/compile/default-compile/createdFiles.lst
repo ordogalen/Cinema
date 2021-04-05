@@ -1,0 +1,15 @@
+hu\alkfejl\model\Movie.class
+hu\alkfejl\dao\HallDAOImpl.class
+hu\alkfejl\model\Screening.class
+hu\alkfejl\model\Hall.class
+hu\alkfejl\dao\MovieDAO.class
+hu\alkfejl\dao\DBConnector.class
+hu\alkfejl\dao\TicketDAO.class
+hu\alkfejl\model\Ticket.class
+hu\alkfejl\dao\TicketDAOImpl.class
+hu\alkfejl\dao\MovieDAOImpl.class
+hu\alkfejl\dao\ScreeningDAOImpl.class
+hu\alkfejl\dao\HallDAO.class
+hu\alkfejl\dao\ScreeningDAO.class
+hu\alkfejl\dao\UserDao.class
+hu\alkfejl\model\User.class

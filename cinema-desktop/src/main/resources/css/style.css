@@ -1,0 +1,73 @@
+#filmActual, #homeActual, #teremActual, #foglalasActual{
+    -fx-background-color: #cdc8c8;
+    -fx-text-fill: black;
+    -fx-cursor: pointer;
+}
+#rightPaneBack {
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+}
+
+#exit{
+    -fx-text-fill: #e9dadf;
+}
+
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+.button:hover {
+    -fx-background-color: #9d9d9d;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
+.root, .scroll-pane, .split-pane, .tab-pane, .table-view, .text-field, .label{
+    -fx-background-color: #956FD6;
+}
+.label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.text-area, .text-field{
+    -fx-border-radius: 5px;
+    -fx-border-color: black;
+}
+.table-view{
+    -fx-border-color: black;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:selected .text{
+    -fx-color:#D3D3D3;
+ }
+
+.table-row-cell:odd{
+    -fx-background-color: #93f9b911;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #1dbbdd11;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-font-weight: bold;
+}
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}
+.split-pane{
+    -fx-border-color: black;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}

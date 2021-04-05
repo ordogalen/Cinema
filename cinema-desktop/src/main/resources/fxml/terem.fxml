@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.HallController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="2.0" layoutY="62.0" prefHeight="531.0" prefWidth="794.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="394.0">
+               <children>
+                  <Label fx:id="teremNevLabel" layoutX="61.0" layoutY="105.0" prefHeight="18.0" prefWidth="94.0" text="Terem neve:" />
+                  <Label fx:id="teremSorLabel" layoutX="61.0" layoutY="132.0" prefHeight="18.0" prefWidth="94.0" text="Terem sorai:" />
+                  <Label fx:id="teremOszlopLabel" layoutX="61.0" layoutY="161.0" prefHeight="18.0" prefWidth="93.0" text="Terem oszlopai:" />
+                  <TextField fx:id="teremNev" layoutX="183.0" layoutY="101.0" />
+                  <TextField fx:id="teremSor" layoutX="183.0" layoutY="128.0" />
+                  <TextField fx:id="teremOszlop" layoutX="183.0" layoutY="157.0" />
+                  <Button fx:id="teremInsert" layoutX="110.0" layoutY="220.0" mnemonicParsing="false" onAction="#insertHall" prefHeight="26.0" prefWidth="149.0" text="Beszúr" />
+                  <Button fx:id="teremDelete" layoutX="109.0" layoutY="321.0" mnemonicParsing="false" onAction="#deleteHall" prefHeight="26.0" prefWidth="150.0" text="Töröl" />
+                  <Button fx:id="teremUpdate" layoutX="110.0" layoutY="269.0" mnemonicParsing="false" onAction="#updateHall" prefHeight="26.0" prefWidth="149.0" text="Frissit" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="417.0">
+               <children>
+                  <TableView fx:id="teremTable" editable="true" layoutY="-1.0" prefHeight="530.0" prefWidth="394.0">
+                    <columns>
+                      <TableColumn fx:id="Terem_nev" editable="false" prefWidth="187.19998168945312" resizable="false" text="Terem nev" />
+                      <TableColumn fx:id="Terem_sor" editable="false" prefWidth="104.800048828125" resizable="false" text="Terem sor" />
+                        <TableColumn fx:id="Terem_oszlop" editable="false" prefWidth="101.60009765625" resizable="false" text="Terem oszlop" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane layoutX="-1.0" layoutY="3.0" prefHeight="48.0" prefWidth="802.0">
+         <children>
+            <Button fx:id="film" layoutX="163.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFilm" prefHeight="46.0" prefWidth="171.0" text="Film page" />
+            <Button fx:id="home" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toHome" prefHeight="46.0" prefWidth="111.0" text="Home" />
+            <Button fx:id="teremActual" layoutX="365.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="171.0" text="Terem page" />
+            <Button fx:id="foglalas" layoutX="570.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFoglalas" prefHeight="46.0" prefWidth="171.0" text="Fogalalasok page" />
+         </children>
+      </AnchorPane>
+       <Label fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="777.0" onMouseClicked="#exit" prefHeight="26.0" prefWidth="22.0" text="X">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

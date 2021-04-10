@@ -38,7 +38,6 @@ public class TicketController implements Initializable {
             if (mouseEvent.getClickCount() == 2)
             {
                 jegyMikor.setEditable(true);
-                jegyMikor.setText(String.valueOf(jegyTable.getSelectionModel().getSelectedItem().getDatum()));
                 jegyAr.setText(String.valueOf(jegyTable.getSelectionModel().getSelectedItem().getJegyar()));
                 jegySzekek.setText(jegyTable.getSelectionModel().getSelectedItem().getSzekek());
                 jegyMikor.setEditable(false);
@@ -53,7 +52,6 @@ public class TicketController implements Initializable {
         vetitesColumn.setCellValueFactory(new PropertyValueFactory<>("vetites_id"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         szekekColumn.setCellValueFactory(new PropertyValueFactory<>("szekek"));
-        mikorColumn.setCellValueFactory(new PropertyValueFactory<>("datum"));
     }
 
 

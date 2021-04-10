@@ -21,6 +21,7 @@ public class HallDAOImpl implements HallDAO{
         connection = new DBConnector();
         conn = connection.connect();
     }
+
     @Override
     public List<Hall> allHall() {
         List<Hall> HallList = new ArrayList<>();
@@ -39,6 +40,21 @@ public class HallDAOImpl implements HallDAO{
         return HallList;
     }
 
+    @Override
+    public Hall specificHall(String name) {
+        try {
+            Hall temp = new Hall();
+            ResultSet rs = connection.selectQuery(String.format("Select * from terem WHERE terem_nev='%s'", name));
+            temp.setTerem_nev(rs.getString("terem_nev"));
+            temp.setOszlop(rs.getInt("oszlop"));
+            temp.setSor(rs.getInt("sor"));
+            return temp;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
     public void delete(Hall h){
         try {
             connection.executeQuery(String.format(DELETE_HALL, h.getTerem_nev()));
@@ -54,7 +70,7 @@ public class HallDAOImpl implements HallDAO{
                 connection.executeQuery(String.format(UPDATE_HALL, h.getTerem_nev(), lastname));
             }
         }catch (Exception e){
-            System.out.println("NEM JÓ");
+            e.printStackTrace();
         }
     }
 

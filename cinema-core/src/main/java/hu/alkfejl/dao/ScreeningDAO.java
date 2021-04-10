@@ -14,9 +14,10 @@ public interface ScreeningDAO {
     Map<InputStream, String> ImageNameMap();
     List<String> HallNames();
     List<String> ScreeningIDs();
+    List<Screening> movieScreening(String movieName);
+    Screening specificScreening(int id);
 
     Screening getScreeingFromID(int value);
     void delete(Screening s);
-    void udpate(Screening s);
     void insert(Screening s);
 }

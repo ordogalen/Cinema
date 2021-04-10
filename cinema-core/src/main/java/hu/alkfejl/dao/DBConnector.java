@@ -1,5 +1,7 @@
 package hu.alkfejl.dao;
 
+import org.sqlite.SQLiteConfig;
+
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
@@ -33,7 +35,9 @@ public class DBConnector {
         try {
             if(conn == null) {
                 Class.forName("org.sqlite.JDBC");
-                conn = DriverManager.getConnection(dbURL);
+                SQLiteConfig config = new SQLiteConfig();
+                config.enforceForeignKeys(true);
+                conn = DriverManager.getConnection(dbURL, config.toProperties());
             }
             return conn;
         } catch (SQLException ex) {
@@ -69,4 +73,13 @@ public class DBConnector {
             System.out.println(e.getMessage());
         }
     }
+
+    public void closeConnection(){
+        try {
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package hu.alkfejl;
 
+import hu.alkfejl.dao.DBConnector;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.sql.Connection;
 
 
 /**
@@ -20,7 +23,7 @@ public class App extends Application {
     public void start(Stage stage) {
         App.stage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
-        App.loadFXML("/fxml/vetites");
+        App.loadFXML("/fxml/primary");
     }
 
     public static FXMLLoader loadFXML(String fxml){

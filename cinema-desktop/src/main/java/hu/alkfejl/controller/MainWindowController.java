@@ -13,10 +13,7 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("I AM IN");
     }
-
-
 
     // NAVIGATION
     public void toFilm(ActionEvent actionEvent)  {

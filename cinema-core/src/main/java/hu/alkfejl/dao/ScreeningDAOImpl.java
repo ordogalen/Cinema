@@ -70,6 +70,52 @@ public class ScreeningDAOImpl implements ScreeningDAO{
     }
 
     @Override
+    public List<Screening> movieScreening(String movieName) {
+        try {
+            ResultSet rs = connection.selectQuery("SELECT * FROM vetites WHERE film_nev = '"+movieName+"'");
+            List<Screening> screenings = new ArrayList<>();
+            while(rs.next()){
+                Screening temp = new Screening();
+                temp.setId(rs.getInt("vetites_id"));
+                temp.setTerem_nev(rs.getString("terem_nev"));
+                temp.setFilm_nev(rs.getString("film_nev"));
+                temp.setDatum(LocalDate.parse(rs.getString("datum").split(" ")[0]));
+                temp.setJegyar(rs.getInt("jegyar"));
+                String nap = rs.getString("datum").split(" ")[1].split(":")[0] + ":"+
+                        rs.getString("datum").split(" ")[1].split(":")[1];
+                temp.setNap(nap);
+                screenings.add(temp);
+            }
+            return screenings;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Screening specificScreening(int id) {
+        try {
+            ResultSet rs = connection.selectQuery("SELECT * from vetites where vetites_id="+id);
+            if(rs.next()){
+                Screening temp = new Screening();
+                temp.setId(rs.getInt("vetites_id"));
+                temp.setTerem_nev(rs.getString("terem_nev"));
+                temp.setFilm_nev(rs.getString("film_nev"));
+                temp.setDatum(LocalDate.parse(rs.getString("datum").split(" ")[0]));
+                temp.setJegyar(rs.getInt("jegyar"));
+                String nap = rs.getString("datum").split(" ")[1].split(":")[0] + ":"+
+                        rs.getString("datum").split(" ")[1].split(":")[1];
+                temp.setNap(nap);
+                return temp;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public Screening getScreeingFromID(int value) {
         Screening temp = new Screening();
         try {
@@ -92,7 +138,6 @@ public class ScreeningDAOImpl implements ScreeningDAO{
     }
 
 
-    // TODO ELBASZTAM MEGKELL CSINÁLNI
     @Override
     public void delete(Screening s) {
         try {
@@ -102,10 +147,6 @@ public class ScreeningDAOImpl implements ScreeningDAO{
         }
     }
 
-    @Override
-    public void udpate(Screening s) {
-        //TODO
-    }
 
     @Override
     public void insert(Screening s) {

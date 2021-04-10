@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class Ticket {
     private IntegerProperty jegy_id = new SimpleIntegerProperty(this,"jegy_id");
     private IntegerProperty jegyar = new SimpleIntegerProperty(this,"jegyar");
-    private ObjectProperty<LocalDate> datum = new SimpleObjectProperty<>(this,"mikor");
     private IntegerProperty vetites_id = new SimpleIntegerProperty(this,"vetites_id");
     private StringProperty email = new SimpleStringProperty(this,"email");
     private StringProperty szekek = new SimpleStringProperty(this,"szekek");
@@ -36,17 +35,6 @@ public class Ticket {
         this.jegyar.set(jegyar);
     }
 
-    public LocalDate getDatum() {
-        return datum.get();
-    }
-
-    public ObjectProperty<LocalDate> datumProperty() {
-        return datum;
-    }
-
-    public void setDatum(LocalDate datum) {
-        this.datum.set(datum);
-    }
 
     public int getVetites_id() {
         return vetites_id.get();

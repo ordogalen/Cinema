@@ -35,7 +35,7 @@ public class ScreeningController implements Initializable{
     @FXML
     TextField whatJegyar;
 
-    Map<Image, String> ImageNameMap = new HashMap<Image, String>();
+    Map<Image, String> ImageNameMap = new HashMap<>();
 
     ScreeningDAO Screenings = new ScreeningDAOImpl();
 
@@ -101,45 +101,40 @@ public class ScreeningController implements Initializable{
     //----------------------------------------------//
 
     private void fillChoiceBox(){
-        whatTimeBox.getItems().add("19:00");
-        whatTimeBox.getItems().add("17:00");
-        whatTimeBox.getItems().add("15:00");
-        whatTimeBox.getItems().add("13:00");
-        whatTimeBox.getItems().add("11:00");
         whatTimeBox.getItems().add("9:00");
+        whatTimeBox.getItems().add("11:00");
+        whatTimeBox.getItems().add("13:00");
+        whatTimeBox.getItems().add("15:00");
+        whatTimeBox.getItems().add("17:00");
+        whatTimeBox.getItems().add("19:00");
+
         List<String> hallNames = Screenings.HallNames();
-        hallNames.forEach(s -> {
-            whatTeremBox.getItems().add(s);
-        });
+        hallNames.forEach(s -> whatTeremBox.getItems().add(s));
         screeningIDS();
     }
 
     private void screeningIDS(){
         List<String> screeningIDs = Screenings.ScreeningIDs();
-        screeningIDs.forEach(e->{
-            whatScreeningID.getItems().add(e);
-        });
-        whatScreeningID.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                try {
-                    Screening temp = Screenings.getScreeingFromID(Integer.parseInt(whatScreeningID.getItems().get((Integer) t1)));
-                    filmLabelNev.setText(temp.getFilm_nev());
-                    whatTeremBox.getSelectionModel().select(temp.getTerem_nev());
-                    whatTimeBox.getSelectionModel().select(temp.getNap());
-                    whatDayPicker.setValue(temp.getDatum());
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
+        screeningIDs.forEach(e-> whatScreeningID.getItems().add(e));
+        whatScreeningID.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
+            try {
+                Screening temp = Screenings.getScreeingFromID(Integer.parseInt(whatScreeningID.getItems().get((Integer) t1)));
+                filmLabelNev.setText(temp.getFilm_nev());
+                whatTeremBox.getSelectionModel().select(temp.getTerem_nev());
+                whatTimeBox.getSelectionModel().select(temp.getNap());
+                whatDayPicker.setValue(temp.getDatum());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
 
-    private void setToDefault(){
+    private void setToDefault() {
         whatTimeBox.getSelectionModel().select(-1);
         whatDayPicker.setValue(LocalDate.now());
         whatTeremBox.getSelectionModel().select(-1);
         filmLabelNev.setText("");
+        whatJegyar.setText("");
     }
 
 

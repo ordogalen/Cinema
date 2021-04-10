@@ -35,6 +35,7 @@ public class MovieDAOImpl implements MovieDAO{
                 t.setHossz(rs.getString("hossz"));
                 t.setFilm_nev(rs.getString("film_nev"));
                 t.setLeiras(rs.getString("leiras"));
+                t.setBoritokep(rs.getString("boritokep"));
                 temp.add(t);
             }
         } catch (Exception e) {

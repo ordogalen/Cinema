@@ -8,5 +8,8 @@ public interface TicketDAO {
     List<Ticket> allTicket();
     void update(Ticket t);
     void delete(Ticket t);
+    void add(Ticket t);
+
+    List<Ticket> specificTickets(int id);
 
 }

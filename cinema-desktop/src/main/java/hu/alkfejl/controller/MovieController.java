@@ -60,6 +60,7 @@ public class MovieController implements Initializable {
         filmKorhatar.setText("");
         filmSzereplok.setText("");
         filmLeiras.setText("");
+        imgV.setImage(null);
 
     }
 

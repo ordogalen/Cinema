@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 
         User u = user.login(username,pass);
         if(u == null){
-            response.sendRedirect("pages/login.jsp");
+            response.sendRedirect("pages/login.jsp?error=0");
             return;
         }
         request.getSession().setAttribute("currentUser", u);
@@ -41,7 +41,17 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+
+        String err = req.getParameter("error");
+        if(err != null && err.equals("0")){
+            req.setAttribute("error",0);
+        }
+
         User u = (User) req.getSession().getAttribute("currentUser");
-        req.setAttribute("personName", u.getNev());
+        if(u != null) {
+            req.setAttribute("personName", u.getNev());
+        }
     }
+
+
 }

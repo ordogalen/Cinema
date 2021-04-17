@@ -12,6 +12,7 @@ import java.util.Map;
 
 public interface ScreeningDAO {
     Map<InputStream, String> ImageNameMap();
+    List<Screening> allScreening();
     List<String> HallNames();
     List<String> ScreeningIDs();
     List<Screening> movieScreening(String movieName);

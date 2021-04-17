@@ -10,6 +10,9 @@ public class Ticket {
     private IntegerProperty vetites_id = new SimpleIntegerProperty(this,"vetites_id");
     private StringProperty email = new SimpleStringProperty(this,"email");
     private StringProperty szekek = new SimpleStringProperty(this,"szekek");
+    private ObjectProperty<LocalDate> datum = new SimpleObjectProperty<>(this,"datum");
+    private StringProperty nap = new SimpleStringProperty(this,"nap");
+
 
     public int getJegy_id() {
         return jegy_id.get();
@@ -70,5 +73,29 @@ public class Ticket {
 
     public void setSzekek(String szekek) {
         this.szekek.set(szekek);
+    }
+
+    public LocalDate getDatum() {
+        return datum.get();
+    }
+
+    public ObjectProperty<LocalDate> datumProperty() {
+        return datum;
+    }
+
+    public void setDatum(LocalDate datum) {
+        this.datum.set(datum);
+    }
+
+    public void setNap(String nap) {
+        this.nap.set(nap);
+    }
+
+    public String getNap() {
+        return nap.get();
+    }
+
+    public StringProperty napProperty() {
+        return nap;
     }
 }

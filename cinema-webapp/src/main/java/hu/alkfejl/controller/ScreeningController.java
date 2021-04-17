@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ScreeningController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private MovieDAO movies = new MovieDAOImpl();
     private ScreeningDAO screenings = new ScreeningDAOImpl();
     private List<Screening> screening;
 
@@ -41,9 +42,10 @@ public class ScreeningController extends HttpServlet {
             request.getRequestDispatcher("pages/filmek.jsp").forward(request,response);
             return;
         }
+        Movie movie = movies.specificMovie(movieName);
         screening = screenings.movieScreening(movieName);
         request.setAttribute("screeningList",screening);
-
+        request.setAttribute("Movie",movie);
 
     }
 }

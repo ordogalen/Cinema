@@ -1409,155 +1409,159 @@
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="510" parent="171">
+    <column id="510" parent="171" name="datum">
+      <Position>6</Position>
+      <DataType>timestamp(6)|0s</DataType>
+    </column>
+    <key id="511" parent="171">
       <ColNames>jegy_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="511" parent="171">
+    <foreign-key id="512" parent="171">
       <ColNames>vetites_id</ColNames>
       <RefTableName>vetites</RefTableName>
       <RefColNames>vetites_id</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="512" parent="171">
+    <foreign-key id="513" parent="171">
       <ColNames>email</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>email</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="513" parent="172" name="type">
+    <column id="514" parent="172" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="514" parent="172" name="name">
+    <column id="515" parent="172" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="515" parent="172" name="tbl_name">
+    <column id="516" parent="172" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="516" parent="172" name="rootpage">
+    <column id="517" parent="172" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="517" parent="172" name="sql">
+    <column id="518" parent="172" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="518" parent="173" name="name">
+    <column id="519" parent="173" name="name">
       <Position>1</Position>
     </column>
-    <column id="519" parent="173" name="seq">
+    <column id="520" parent="173" name="seq">
       <Position>2</Position>
     </column>
-    <column id="520" parent="174" name="terem_nev">
+    <column id="521" parent="174" name="terem_nev">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="521" parent="174" name="sor">
+    <column id="522" parent="174" name="sor">
       <Position>2</Position>
       <DataType>int(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="522" parent="174" name="oszlop">
+    <column id="523" parent="174" name="oszlop">
       <Position>3</Position>
       <DataType>int(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="523" parent="174" name="sqlite_autoindex_terem_1">
+    <index id="524" parent="174" name="sqlite_autoindex_terem_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>terem_nev</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="524" parent="174">
+    <key id="525" parent="174">
       <ColNames>terem_nev</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_terem_1</UnderlyingIndexName>
     </key>
-    <column id="525" parent="175" name="email">
+    <column id="526" parent="175" name="email">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="526" parent="175" name="nev">
+    <column id="527" parent="175" name="nev">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="527" parent="175" name="jelszo">
+    <column id="528" parent="175" name="jelszo">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="528" parent="175" name="sqlite_autoindex_user_1">
+    <index id="529" parent="175" name="sqlite_autoindex_user_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="529" parent="175">
+    <key id="530" parent="175">
       <ColNames>email</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_user_1</UnderlyingIndexName>
     </key>
-    <column id="530" parent="176" name="vetites_id">
+    <column id="531" parent="176" name="vetites_id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="531" parent="176" name="datum">
+    <column id="532" parent="176" name="datum">
       <Position>2</Position>
       <DataType>timestamp(6)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp</DefaultExpression>
     </column>
-    <column id="532" parent="176" name="film_nev">
+    <column id="533" parent="176" name="film_nev">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="533" parent="176" name="terem_nev">
+    <column id="534" parent="176" name="terem_nev">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="534" parent="176" name="jegyar">
+    <column id="535" parent="176" name="jegyar">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>1500</DefaultExpression>
     </column>
-    <index id="535" parent="176" name="vetites_datum_uindex">
+    <index id="536" parent="176" name="vetites_datum_uindex">
       <ColNames>datum</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="536" parent="176" name="vetites_film_nev_index">
+    <index id="537" parent="176" name="vetites_film_nev_index">
       <ColNames>film_nev</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="537" parent="176" name="vetites_terem_nev_index">
+    <index id="538" parent="176" name="vetites_terem_nev_index">
       <ColNames>terem_nev</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="538" parent="176">
+    <key id="539" parent="176">
       <ColNames>vetites_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="539" parent="176">
+    <foreign-key id="540" parent="176">
       <ColNames>film_nev</ColNames>
       <RefTableName>film</RefTableName>
       <RefColNames>film_nev</RefColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="540" parent="176">
+    <foreign-key id="541" parent="176">
       <ColNames>terem_nev</ColNames>
       <RefTableName>terem</RefTableName>
       <RefColNames>terem_nev</RefColNames>

@@ -88,6 +88,15 @@ public class HallController implements Initializable {
         teremSor.setText("");
     }
 
+    private boolean Checker(){
+        if(teremNev.getText() == null || teremSor.getText()==null || teremOszlop.getText()==null){
+            Alert conf = new Alert(Alert.AlertType.INFORMATION, "Nem töltöttél ki minden mezőt");
+            conf.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
     private Hall new_Hall(){
         Hall h = new Hall();
         h.setTerem_nev(teremNev.getText());
@@ -111,6 +120,9 @@ public class HallController implements Initializable {
 
     @FXML
     private void insertHall(){
+        if(!Checker()){
+            return;
+        }
         Halls.insert(new_Hall());
         showAll();
     }

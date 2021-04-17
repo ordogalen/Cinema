@@ -9,6 +9,7 @@ public interface TicketDAO {
     void update(Ticket t);
     void delete(Ticket t);
     void add(Ticket t);
+    int specificTicketID(int vetitesid, String helyek);
 
     List<Ticket> specificTickets(int id);
 

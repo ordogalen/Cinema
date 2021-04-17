@@ -30,7 +30,7 @@ public class EddigiController implements Initializable {
     MovieDAO Movies = new MovieDAOImpl();
 
     //After double click on filmView
-    String movieName;
+    String movieName = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,12 +47,17 @@ public class EddigiController implements Initializable {
         searchWherein.getItems().add("leiras");
         searchWherein.getItems().add("hossz");
 
+
         showAll();
 
     }
 
     private void showAll() {
         filmView.getItems().setAll(Movies.allMovie());
+        SetCellValues();
+    }
+
+    private void SetCellValues() {
         filmNev.setCellValueFactory(new PropertyValueFactory<>("film_nev"));
         filmHossz.setCellValueFactory(new PropertyValueFactory<>("hossz"));
         filmKorhatar.setCellValueFactory(new PropertyValueFactory<>("korhatar"));
@@ -66,12 +71,7 @@ public class EddigiController implements Initializable {
         List<Movie> lista = Movies.search(whatin, searchWhat.getText());
         if(!lista.isEmpty()){
             filmView.getItems().setAll(Movies.search(whatin, searchWhat.getText()));
-            filmNev.setCellValueFactory(new PropertyValueFactory<>("film_nev"));
-            filmHossz.setCellValueFactory(new PropertyValueFactory<>("hossz"));
-            filmKorhatar.setCellValueFactory(new PropertyValueFactory<>("korhatar"));
-            filmLeiras.setCellValueFactory(new PropertyValueFactory<>("leiras"));
-            filmSzereplok.setCellValueFactory(new PropertyValueFactory<>("szereplok"));
-            filmRendezo.setCellValueFactory(new PropertyValueFactory<>("rendezo"));
+            SetCellValues();
             return;
         }
         Alert msg = new Alert(Alert.AlertType.INFORMATION,"Nem létezik ilyen adat az adatbázisban");
@@ -81,15 +81,22 @@ public class EddigiController implements Initializable {
     }
 
     public void delete(ActionEvent actionEvent) {
+        Alert conf;
+        if(movieName == null){
+            conf = new Alert(Alert.AlertType.INFORMATION, "Kattints kétszer valamelyik sorra");
+            conf.showAndWait();
+            return;
+        }
+
         Movie d = new Movie();
         d.setFilm_nev(movieName);
-        Alert conf = new Alert(Alert.AlertType.CONFIRMATION, "Biztosan törölni akarod ezt a filmet: "+d.getFilm_nev(), ButtonType.YES, ButtonType.NO);
+        conf = new Alert(Alert.AlertType.CONFIRMATION, "Biztosan törölni akarod ezt a filmet: "+d.getFilm_nev(), ButtonType.YES, ButtonType.NO);
         conf.showAndWait().ifPresent(buttonType -> {
             if(buttonType.equals(ButtonType.YES)){
                 Movies.delete(d);
             }
         });
-        movieName="";
+        movieName=null;
         showAll();
     }
 

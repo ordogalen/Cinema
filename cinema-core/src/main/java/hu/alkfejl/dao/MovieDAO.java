@@ -9,6 +9,7 @@ public interface MovieDAO {
     int delete(Movie m);
     int update(Movie m);
     int insert(Movie m);
-    public List<Movie> allMovie();
-    public List<Movie> search(String where, String what);
+    List<Movie> allMovie();
+    Movie specificMovie(String movie_name);
+    List<Movie> search(String where, String what);
 }

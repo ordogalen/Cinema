@@ -36,7 +36,7 @@ public class MovieController implements Initializable {
     @FXML
     TextArea filmLeiras;
     @FXML
-    Button filmInsert, filmDelete, filmUpdate;
+    Button filmInsert, filmUpdate;
     @FXML
     Button imgLoad;
     @FXML
@@ -73,6 +73,7 @@ public class MovieController implements Initializable {
         tempFilmLeiras.textProperty().bind(filmLeiras.textProperty());
         tempFilmHossz.textProperty().bind(filmHossz.textProperty().concat(" perc"));
         tempFilmLeiras.setAlignment(Pos.TOP_LEFT);
+
         ButtonHandler();
     }
 
@@ -116,6 +117,9 @@ public class MovieController implements Initializable {
     public void imageToByte(ActionEvent actionEvent) {
         final FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Válassz egy boritokepet");
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("Images files", "*.jpg","*.png");
+        fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showOpenDialog(App.stage);
         if (file != null) {
             Image image1 = new Image(file.toURI().toString());
@@ -128,7 +132,9 @@ public class MovieController implements Initializable {
             }
             byte[] bytes = new byte[(int)file.length()];
             try {
-                fileInputStreamReader.read(bytes);
+                if (fileInputStreamReader != null) {
+                    fileInputStreamReader.read(bytes);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

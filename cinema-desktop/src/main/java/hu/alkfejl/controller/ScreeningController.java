@@ -101,12 +101,21 @@ public class ScreeningController implements Initializable{
     //----------------------------------------------//
 
     private void fillChoiceBox(){
-        whatTimeBox.getItems().add("9:00");
+        whatTimeBox.getItems().add("8:00");
         whatTimeBox.getItems().add("11:00");
-        whatTimeBox.getItems().add("13:00");
-        whatTimeBox.getItems().add("15:00");
+        whatTimeBox.getItems().add("14:00");
         whatTimeBox.getItems().add("17:00");
-        whatTimeBox.getItems().add("19:00");
+        whatTimeBox.getItems().add("20:00");
+        whatTimeBox.getItems().add("23:00");
+
+        LocalDate minDate = LocalDate.now();
+        whatDayPicker.setDayCellFactory(d ->
+                new DateCell() {
+                    @Override public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setDisable(item.isBefore(minDate));
+                    }});
+
 
         List<String> hallNames = Screenings.HallNames();
         hallNames.forEach(s -> whatTeremBox.getItems().add(s));
@@ -123,6 +132,7 @@ public class ScreeningController implements Initializable{
                 whatTeremBox.getSelectionModel().select(temp.getTerem_nev());
                 whatTimeBox.getSelectionModel().select(temp.getNap());
                 whatDayPicker.setValue(temp.getDatum());
+                whatJegyar.setText(String.valueOf(temp.getJegyar()));
             } catch (Exception e) {
                 e.printStackTrace();
             }

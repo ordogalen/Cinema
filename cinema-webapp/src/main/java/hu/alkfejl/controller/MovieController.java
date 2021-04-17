@@ -43,5 +43,4 @@ public class MovieController extends HttpServlet {
         }
         request.setAttribute("movieList",m);
     }
-
 }

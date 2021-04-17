@@ -31,12 +31,15 @@ public class TicketController implements Initializable {
     TableColumn<Ticket, String> mikorColumn;
     TicketDAO tickets = new TicketDAOImpl();
 
+    Integer ticketID;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         showAll();
         jegyTable.setOnMouseClicked(mouseEvent -> {
             if (mouseEvent.getClickCount() == 2)
             {
+                ticketID = jegyTable.getSelectionModel().getSelectedItem().getJegy_id();
                 jegyMikor.setEditable(true);
                 jegyAr.setText(String.valueOf(jegyTable.getSelectionModel().getSelectedItem().getJegyar()));
                 jegySzekek.setText(jegyTable.getSelectionModel().getSelectedItem().getSzekek());
@@ -54,6 +57,24 @@ public class TicketController implements Initializable {
         szekekColumn.setCellValueFactory(new PropertyValueFactory<>("szekek"));
     }
 
+    public void delete(ActionEvent actionEvent) {
+        Alert conf;
+        if(ticketID==null){
+            conf = new Alert(Alert.AlertType.INFORMATION, "Kattints kétszer valamelyik sorra");
+            conf.showAndWait();
+            return;
+        }
+        Ticket t = new Ticket();
+        t.setJegy_id(ticketID);
+        conf = new Alert(Alert.AlertType.CONFIRMATION, "Biztosan törölni akarod ezt a jegyet: "+t.getJegy_id(), ButtonType.YES, ButtonType.NO);
+        conf.showAndWait().ifPresent(buttonType -> {
+            if(buttonType.equals(ButtonType.YES)){
+                tickets.delete(t);
+            }
+        });
+        ticketID=null;
+        showAll();
+    }
 
     //navigation
     public void toFilm(ActionEvent actionEvent)  {
@@ -71,4 +92,5 @@ public class TicketController implements Initializable {
 
     @FXML
     public void exit(MouseEvent actionEvent){ App.close();}
+
 }

@@ -1,6 +1,7 @@
 hu\alkfejl\controller\MovieController.class
 hu\alkfejl\controller\TicketController.class
 hu\alkfejl\App.class
+hu\alkfejl\controller\ScreeningController$1.class
 hu\alkfejl\controller\MainWindowController.class
 hu\alkfejl\controller\ScreeningController.class
 hu\alkfejl\controller\HallController.class

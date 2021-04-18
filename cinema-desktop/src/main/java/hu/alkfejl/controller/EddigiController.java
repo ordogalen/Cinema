@@ -83,7 +83,7 @@ public class EddigiController implements Initializable {
     public void delete(ActionEvent actionEvent) {
         Alert conf;
         if(movieName == null){
-            conf = new Alert(Alert.AlertType.INFORMATION, "Kattints kétszer valamelyik sorra");
+            conf = new Alert(Alert.AlertType.INFORMATION, "Kattints kétszer valamelyik filmre!");
             conf.showAndWait();
             return;
         }
@@ -93,9 +93,17 @@ public class EddigiController implements Initializable {
         conf = new Alert(Alert.AlertType.CONFIRMATION, "Biztosan törölni akarod ezt a filmet: "+d.getFilm_nev(), ButtonType.YES, ButtonType.NO);
         conf.showAndWait().ifPresent(buttonType -> {
             if(buttonType.equals(ButtonType.YES)){
-                Movies.delete(d);
+                int code = Movies.delete(d);
+                Alert c;
+                if(code == 0){
+                    c = new Alert(Alert.AlertType.INFORMATION, "Sikeres törlés");
+                }else{
+                    c = new Alert(Alert.AlertType.INFORMATION, "Sikertelen törlés");
+                }
+                c.showAndWait();
             }
         });
+
         movieName=null;
         showAll();
     }

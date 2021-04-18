@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TicketController implements Initializable {
@@ -40,9 +41,9 @@ public class TicketController implements Initializable {
             if (mouseEvent.getClickCount() == 2)
             {
                 ticketID = jegyTable.getSelectionModel().getSelectedItem().getJegy_id();
-                jegyMikor.setEditable(true);
                 jegyAr.setText(String.valueOf(jegyTable.getSelectionModel().getSelectedItem().getJegyar()));
                 jegySzekek.setText(jegyTable.getSelectionModel().getSelectedItem().getSzekek());
+                jegyMikor.setText(jegyTable.getSelectionModel().getSelectedItem().getDatum() + " " + jegyTable.getSelectionModel().getSelectedItem().getNap());
                 jegyMikor.setEditable(false);
             }
         });
@@ -55,6 +56,7 @@ public class TicketController implements Initializable {
         vetitesColumn.setCellValueFactory(new PropertyValueFactory<>("vetites_id"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         szekekColumn.setCellValueFactory(new PropertyValueFactory<>("szekek"));
+        mikorColumn.setCellValueFactory(new PropertyValueFactory<>("datum"));
     }
 
     public void delete(ActionEvent actionEvent) {
@@ -74,6 +76,24 @@ public class TicketController implements Initializable {
         });
         ticketID=null;
         showAll();
+    }
+
+    public void Update(ActionEvent actionEvent) {
+        if(Objects.equals(jegySzekek.getText(), "") || Objects.equals(jegyAr.getText(), "")){
+            Alert conf = new Alert(Alert.AlertType.INFORMATION,"Minden mező kitöltése szükséges!");
+            conf.showAndWait();
+            return;
+        }
+        Ticket t = new Ticket();
+        t.setSzekek(jegySzekek.getText());
+        t.setJegyar(Integer.parseInt(jegyAr.getText()));
+        t.setJegy_id(ticketID);
+        tickets.update(t);
+
+        showAll();
+        jegySzekek.setText("");
+        jegyAr.setText("");
+        jegyMikor.setText("");
     }
 
     //navigation

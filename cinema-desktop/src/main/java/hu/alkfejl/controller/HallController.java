@@ -19,6 +19,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HallController implements Initializable {
@@ -88,15 +89,6 @@ public class HallController implements Initializable {
         teremSor.setText("");
     }
 
-    private boolean Checker(){
-        if(teremNev.getText() == null || teremSor.getText()==null || teremOszlop.getText()==null){
-            Alert conf = new Alert(Alert.AlertType.INFORMATION, "Nem töltöttél ki minden mezőt");
-            conf.showAndWait();
-            return false;
-        }
-        return true;
-    }
-
     private Hall new_Hall(){
         Hall h = new Hall();
         h.setTerem_nev(teremNev.getText());
@@ -120,7 +112,9 @@ public class HallController implements Initializable {
 
     @FXML
     private void insertHall(){
-        if(!Checker()){
+        if(Objects.equals(teremNev.getText(), "") || Objects.equals(teremSor.getText(), "") || Objects.equals(teremOszlop.getText(), "")){
+            Alert conf = new Alert(Alert.AlertType.INFORMATION, "Nem töltöttél ki minden szükséges mezőt");
+            conf.showAndWait();
             return;
         }
         Halls.insert(new_Hall());
@@ -129,6 +123,11 @@ public class HallController implements Initializable {
 
     @FXML
     private void updateHall(){
+        if(Objects.equals(teremNev.getText(), "")){
+            Alert conf = new Alert(Alert.AlertType.INFORMATION, "Nem töltöttél ki minden szükséges mezőt");
+            conf.showAndWait();
+            return;
+        }
         Hall h = new Hall();
         h.setTerem_nev(teremNev.getText());
         Halls.udpate(h,teremTable.getSelectionModel().getSelectedItem().getTerem_nev());

@@ -120,6 +120,7 @@ public class MovieDAOImpl implements MovieDAO{
 
     @Override
     public int insert(Movie m) {
+        System.out.println(m.getBoritokep().isEmpty());
         if(!m.getFilm_nev().isEmpty() && !m.getHossz().isEmpty() && !m.getKorhatar().isEmpty() && !m.getLeiras().isEmpty() && !m.getBoritokep().isEmpty()){
             try (Connection c = DriverManager.getConnection(dbURL)){
                 PreparedStatement pstm = c.prepareStatement(INSERT_MOVIE);

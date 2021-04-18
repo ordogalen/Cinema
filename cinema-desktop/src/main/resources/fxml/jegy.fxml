@@ -16,13 +16,13 @@
       <TextField fx:id="jegyAr" layoutX="99.0" layoutY="429.0" />
       <TextField fx:id="jegyMikor" editable="false" layoutX="99.0" layoutY="470.0" promptText="YYYY-MM-DD" />
       <TextField fx:id="jegySzekek" layoutX="99.0" layoutY="506.0" />
-      <Button  layoutX="5.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Módosítás" />
+      <Button  layoutX="5.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" onAction="#Update" text="Módosítás" />
       <Button onAction="#delete" layoutX="587.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Törlés" />
       <TableView fx:id="jegyTable" layoutX="9.0" layoutY="62.0" prefHeight="318.0" prefWidth="787.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="Jegy id" />
           <TableColumn fx:id="arColumn" prefWidth="92.79998779296875" text="Jegyár" />
-            <TableColumn fx:id="mikorColumn" prefWidth="131.1999969482422" text="Foglalási idő" />
+            <TableColumn fx:id="mikorColumn" prefWidth="131.1999969482422" text="Foglalt időpont" />
             <TableColumn fx:id="vetitesColumn" prefWidth="68.79998779296875" text="Vetités id" />
             <TableColumn fx:id="emailColumn" prefWidth="151.199951171875" text="Rendelő email" />
             <TableColumn fx:id="szekekColumn" prefWidth="280.0" text="Foglalt székek" />

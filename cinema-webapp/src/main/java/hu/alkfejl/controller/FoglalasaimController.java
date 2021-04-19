@@ -30,6 +30,11 @@ public class FoglalasaimController extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("currentUser");
+        if(user == null){
+            request.getRequestDispatcher("pages/login.jsp").forward(request,response);
+            return;
+        }
     }
 
     @Override
@@ -40,6 +45,9 @@ public class FoglalasaimController extends HttpServlet {
             return;
         }
 
+
+
+
         String torlesID = request.getParameter("value");
         if(torlesID != null){
             Ticket torlendo = new Ticket();
@@ -48,9 +56,23 @@ public class FoglalasaimController extends HttpServlet {
             response.sendRedirect("pages/filmek.jsp");
         }
 
-
-        List<Ticket> tempTickets = ticket.allTicket();
+        List<Ticket> tempTickets = ticket.allTicket();;
         List<Ticket> tickets = new ArrayList<>();
+
+        String mit = request.getParameter("mit");
+        String miben = request.getParameter("miben");
+
+        if(mit != null || miben != null){
+            tempTickets = ticket.Search(miben,mit,user.getEmail());
+            for(Ticket i : tempTickets){
+                if(i.getEmail().equals(user.getEmail())){
+                    tickets.add(i);
+                }
+            }
+            request.setAttribute("sclist",tickets);
+            return;
+        }
+
 
         for(Ticket i : tempTickets){
             if(i.getEmail().equals(user.getEmail())){

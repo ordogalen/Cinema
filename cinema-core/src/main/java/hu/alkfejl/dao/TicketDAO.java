@@ -11,6 +11,7 @@ public interface TicketDAO {
     void add(Ticket t);
     int specificTicketID(int vetitesid, String helyek);
 
+    List<Ticket> Search(String where, String what, String email);
     List<Ticket> specificTickets(int id);
 
 }

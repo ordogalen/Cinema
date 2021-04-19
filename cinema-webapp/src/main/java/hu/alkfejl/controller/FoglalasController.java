@@ -39,6 +39,8 @@ public class FoglalasController extends HttpServlet {
         String helyek = request.getParameter("helyek");
         String idopont = request.getParameter("idopont");
 
+
+
         if(email == null || vetites_id==null || jegyar == null || helyek==null){
             request.getRequestDispatcher("pages/filmek.jsp").forward(request,response);
             return;

@@ -1,5 +1,6 @@
 package hu.alkfejl.dao;
 
+import hu.alkfejl.model.Movie;
 import hu.alkfejl.model.Ticket;
 
 import java.io.IOException;
@@ -109,6 +110,32 @@ public class TicketDAOImpl implements TicketDAO{
             throwables.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public List<Ticket> Search(String where, String what, String email) {
+        List<Ticket> tickets = new ArrayList<>();
+        try (Connection c = DriverManager.getConnection(dbURL)) {
+            PreparedStatement pstm = c.prepareStatement("SELECT * FROM jegy WHERE " + where + " LIKE '%" + what + "%' AND email = ?");
+            pstm.setString(1,email);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Ticket t = new Ticket();
+                t.setEmail(rs.getString("email"));
+                t.setJegy_id(rs.getInt("jegy_id"));
+                t.setSzekek(rs.getString("szekek"));
+                t.setVetites_id(rs.getInt("vetites_id"));
+                t.setJegyar(rs.getInt("jegyar"));
+                t.setDatum(LocalDate.parse(rs.getString("datum").split(" ")[0]));
+                String nap = rs.getString("datum").split(" ")[1].split(":")[0] + ":" +
+                        rs.getString("datum").split(" ")[1].split(":")[1];
+                t.setNap(nap);
+                tickets.add(t);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tickets;
     }
 
     @Override

@@ -12,9 +12,8 @@
 </head>
 <body>
 <jsp:include page="common/common-menu.jsp"/>
-<jsp:include page="/Foglalasaim_Controller"/>
 
-<form action="foglalasaim.jsp" method="get">
+<form action="${pageContext.request.contextPath}/Foglalasaim_Controller" method="post">
     <fieldset>
         <legend>Keresés</legend>
         <label for ="mit"><b>Mit keresel:</b> <input type="text" id="mit" name="mit"></label><br>

@@ -47,7 +47,6 @@
         <input type="text" id="helyek" name="helyek" required hidden readonly="readonly"><br>
         <input id = "foglal" class="btn" type="submit" value="Foglal">
         <button type="button" class="btn cancel" onclick="closeFoglalas()">Osszecsuk</button>
-
     </form>
 </div>
 <script>

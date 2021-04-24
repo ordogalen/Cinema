@@ -1,7 +1,7 @@
-#CINEMA
+# CINEMA
 Alkalmazásfejlesztésre készült project.
 
-##ELŐKÉSZÜLETEK: 
+## ELŐKÉSZÜLETEK: 
   ...
   1, cinema-core-ban a resource mappa alatt található application.properties-ben átkell irni a db-url-t
   ...

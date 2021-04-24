@@ -10,7 +10,7 @@ Alkalmazásfejlesztésre készült project.
 ```
 
 
-##AZ ALKALMAZÁSRÓL
+## AZ ALKALMAZÁSRÓL
 ```
 Asztali felület
 ```
@@ -24,7 +24,7 @@ Webes felület
 * A webes felület, egy a felhasználóknak létrehozott rész, ahol a felhasználók regisztrálhatnak, beléphetnek megtekinthetik milyen filmek vannak az adatbázisban, majd foglalhatnak vagy módosithatják a meglévő foglalásaikat.
 
 
-##EXTRA FUNKCIÓK
+## EXTRA FUNKCIÓK
 ```
 A webes felületen lehetőség van ülés térképpel foglalni.
 ```
